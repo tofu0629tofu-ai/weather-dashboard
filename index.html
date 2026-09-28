@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Weather Dashboard</h1>
+      <p class="subtitle">Real-time weather information</p>
+    </header>
+
+    <div class="search-section">
+      <div class="search-box">
+        <input 
+          type="text" 
+          id="searchInput" 
+          placeholder="Search for a city..." 
+          autocomplete="off"
+        >
+        <button id="searchBtn" class="btn-search">Search</button>
+      </div>
+      <div id="suggestions" class="suggestions"></div>
+    </div>
+
+    <div id="errorMessage" class="error-message"></div>
+
+    <div id="loadingSpinner" class="loading-spinner">
+      <div class="spinner"></div>
+      <p>Loading weather data...</p>
+    </div>
+
+    <main id="mainContent" class="main-content hidden">
+      <!-- Current Weather Section -->
+      <section class="weather-section current-weather">
+        <div class="city-header">
+          <div>
+            <h2 id="cityName"></h2>
+            <p id="currentDate" class="date"></p>
+          </div>
+          <button id="favoriteBtn" class="btn-favorite">★</button>
+        </div>
+
+        <div class="current-main">
+          <div class="temperature-section">
+            <div class="weather-icon" id="weatherIcon"></div>
+            <div class="temp-info">
+              <div class="temperature" id="temperature"></div>
+              <div class="weather-description" id="weatherDescription"></div>
+            </div>
+          </div>
+
+          <div class="weather-details">
+            <div class="detail-item">
+              <span class="label">Feels Like</span>
+              <span class="value" id="feelsLike"></span>
+            </div>
+            <div class="detail-item">
+              <span class="label">Humidity</span>
+              <span class="value" id="humidity"></span>
+            </div>
+            <div class="detail-item">
+              <span class="label">Wind Speed</span>
+              <span class="value" id="windSpeed"></span>
+            </div>
+            <div class="detail-item">
+              <span class="label">Pressure</span>
+              <span class="value" id="pressure"></span>
+            </div>
+            <div class="detail-item">
+              <span class="label">UV Index</span>
+              <span class="value" id="uvIndex"></span>
+            </div>
+            <div class="detail-item">
+              <span class="label">Visibility</span>
+              <span class="value" id="visibility"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5-Day Forecast -->
+      <section class="forecast-section">
+        <h3>5-Day Forecast</h3>
+        <div class="forecast-container" id="forecastContainer"></div>
+      </section>
+
+      <!-- Hourly Forecast -->
+      <section class="hourly-section">
+        <h3>Hourly Forecast (Next 24 Hours)</h3>
+        <div class="hourly-container" id="hourlyContainer"></div>
+      </section>
+    </main>
+
+    <!-- Favorites Section -->
+    <section id="favoritesSection" class="favorites-section hidden">
+      <h3>Favorite Cities</h3>
+      <div id="favoritesList" class="favorites-list"></div>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <p>Powered by OpenWeatherMap API</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
